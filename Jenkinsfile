@@ -2,7 +2,7 @@ pipeline {
    agent any
    
     parameters {
-        string(name: 'host', description: 'API Manager Host Name', defaultValue: 'https://forrester.demo.axway.com:8075')
+        string(name: 'host', description: 'API Manager Host Name', defaultValue: 'forrester.demo.axway.com')
         string(name: 'username', description: 'API Manager Administrator Username', defaultValue: 'apiadmin')
         password(name: 'password', description: 'API Manager Administrator Password')
         string(name: 'stage', description: 'Targer Environment to Deploy', defaultValue: 'dev')
