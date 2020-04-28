@@ -1,22 +1,25 @@
 pipeline {
    agent any
-
+   
    tools {
-      // Install the Maven version configured as "M3" and add it to the path.
-      maven "Mvn 3.3.9"
+     
+      maven "maven"
    }
+   
+    parameters {
+        string(name: 'host', description: 'API Manager Host Name', defaultValue: 'forrester.demo.axway.com')
+        string(name: 'stage', description: 'Targer Environment to Deploy', defaultValue: 'dev')
+       
+    }
 
    stages {
-      stage('Build') {
+      stage('Import API to Axway API Manager') {
          steps {
-            // Get some code from a GitHub repository
-            git 'https://github.com/cwiechmann/imagine-api-demo.git'
-
-            // Run Maven on a Unix agent.
-            sh "mvn clean exec:java"
-
-            // To run Maven on a Windows agent, use
-            // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            
+            withCredentials([usernamePassword(credentialsId: "${stage}", usernameVariable: 'username', passwordVariable: 'password')])  {
+                sh 'mvn clean exec:java -Dexec.args="-h ${host} -u ${username} -p ${password} -c ./api-definition/1-design-only-config.json -s api-env -f true"'
+              }
+     
          }
       }
    }

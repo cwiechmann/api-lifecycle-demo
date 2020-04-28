@@ -71,9 +71,9 @@
                     <addResourcesToClasspath>true</addResourcesToClasspath>
                     <mainClass>com.axway.apim.App</mainClass>
                     <classpath/>
-                    <commandlineArgs>
+                    <!--commandlineArgs>
                         -c ${apiConfigFile} -s ${stage} -f true
-                    </commandlineArgs>
+                    </commandlineArgs-->
                 </configuration>
             </plugin>
         </plugins>
