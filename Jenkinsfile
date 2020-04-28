@@ -14,7 +14,7 @@ pipeline {
          steps {
             
              withMaven(maven: 'maven') {
-                sh 'mvn clean exec:java -h ${host} -u ${username} -p ${password}'
+                sh 'mvn clean exec:java -Dexec.args="-h ${host} -u ${username} -p ${password}"'
               }
      
          }
