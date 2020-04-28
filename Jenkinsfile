@@ -1,10 +1,13 @@
 pipeline {
    agent any
    
+   tools {
+     
+      maven "maven"
+   }
+   
     parameters {
         string(name: 'host', description: 'API Manager Host Name', defaultValue: 'forrester.demo.axway.com')
-        string(name: 'username', description: 'API Manager Administrator Username', defaultValue: 'apiadmin')
-        password(name: 'password', description: 'API Manager Administrator Password')
         string(name: 'stage', description: 'Targer Environment to Deploy', defaultValue: 'dev')
        
     }
@@ -13,7 +16,7 @@ pipeline {
       stage('Import API to Axway API Manager') {
          steps {
             
-             withMaven(maven: 'maven') {
+            withCredentials([usernamePassword(credentialsId: '${stage}', usernameVariable: 'username', passwordVariable: 'password')])  {
                 sh 'mvn clean exec:java -Dexec.args="-h ${host} -u ${username} -p ${password} -c ./api-definition/1-design-only-config.json -s api-env -f true"'
               }
      
