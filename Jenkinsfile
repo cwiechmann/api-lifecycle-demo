@@ -8,7 +8,7 @@ pipeline {
    
     parameters {
         string(name: 'host', description: 'API Manager Host Name', defaultValue: 'forrester.demo.axway.com')
-        string(name: 'stage', description: 'Targer Environment to Deploy', defaultValue: 'dev')
+        string(name: 'stage', description: 'Targer Environment to Deploy', defaultValue: 'apim-dev')
        
     }
 
