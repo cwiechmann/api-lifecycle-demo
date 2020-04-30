@@ -148,7 +148,10 @@
         }
       },
       "title": "Weather-Information",
-      "description": "Contains information about the weather at the requested location."
+      "description": "Contains information about the weather at the requested location.",
+      "x-examples": {
+        "example-1": {}
+      }
     }
   },
   "schemes": [
