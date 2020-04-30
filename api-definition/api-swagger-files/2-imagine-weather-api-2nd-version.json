@@ -112,6 +112,16 @@
           }
         },
         "description": "This is to delete this locations weather"
+      },
+      "head": {
+        "summary": "",
+        "operationId": "head-axway-imagine",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Test HEAD"
       }
     },
     "/{ip}": {
