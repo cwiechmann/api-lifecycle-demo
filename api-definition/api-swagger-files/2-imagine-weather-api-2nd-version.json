@@ -190,7 +190,8 @@
           }
         },
         "summary": "Weather at your current location",
-        "operationId": "weatherForIp"
+        "operationId": "weatherForIp",
+        "description": "Get Weather details"
       },
       "parameters": [
         {
@@ -204,7 +205,13 @@
       ]
     }
   },
-  "securityDefinitions": {},
+  "securityDefinitions": {
+    "API Key - 1": {
+      "name": "API Key",
+      "type": "apiKey",
+      "in": "query"
+    }
+  },
   "definitions": {
     "weatherResult": {
       "type": "object",
