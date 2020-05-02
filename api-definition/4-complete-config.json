@@ -2,7 +2,7 @@
    "name":"Axway Imagine - Weather API",
    "path":"/api/v1/weather",
    "state":"published",
-   "version":"1.0.0",
+   "version":"1.0.2",
    "organization":"API Development",
    "apiDefinition": "./api-definition/api-swagger-files/2-imagine-weather-api-2nd-version.json",
    "image":"weather-logo.jpg",
