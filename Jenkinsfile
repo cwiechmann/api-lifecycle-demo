@@ -24,7 +24,6 @@ pipeline {
                   list.add("prod")
                   def tags = props.get("tags")
                   tags.accumulate("nextStage", list)
-                  print props
                   writeJSON file: 'api-definition/4-complete-config.json', json: props
                }
             }
