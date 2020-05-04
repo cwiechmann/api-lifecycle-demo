@@ -8,7 +8,7 @@ pipeline {
    
     parameters {
         string(name: 'host', description: 'API Manager Host Name', defaultValue: 'forrester1.demo.axway.com')
-        string(name: 'stage', description: 'Targer Environment to Deploy', defaultValue: 'dev')
+        string(name: 'stage', description: 'Targer Environment to Deploy', defaultValue: 'staging')
         string(name: 'returnCodeMapping', description: 'Swagger Promote CLI return code mapping', defaultValue: '10:0')
        
     }
@@ -17,21 +17,15 @@ pipeline {
       stage('Import API to Axway API Manager') {
          steps {
             script{
-               def props = readJSON file: 'api-definition/4-complete-config.json'
-              
-               print stage
+               def props = readJSON file: 'api-definition/4-complete-config.json
                
                if(stage.equals("staging")){
                   def list = new ArrayList()
                   list.add("prod")
-                  props.accumulate("nextStage", list)
+                  def tags = props.get("tags")
+                  tags.accumulate("nextStage", list)
                   print props
                }
-               
-               print props
-               def tags = props.get("tags")
-               print tags
-               print tags.getClass().getName()
             }
             
             withCredentials([usernamePassword(credentialsId: "${stage}", usernameVariable: 'username', passwordVariable: 'password')])  {
