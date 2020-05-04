@@ -18,6 +18,16 @@ pipeline {
          steps {
             script{
                def props = readJSON file: 'api-definition/4-complete-config.json'
+              
+               print stage
+               
+               if(stage.equals("staging")){
+                  def list = new ArrayList()
+                  list.add("prod")
+                  props.accumulate("nextStage", list)
+                  print props
+               }
+               
                print props
                def tags = props.get("tags")
                print tags
