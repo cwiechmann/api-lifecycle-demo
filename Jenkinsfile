@@ -25,7 +25,7 @@ pipeline {
                   def tags = props.get("tags")
                   tags.accumulate("nextStage", list)
                   print props
-                  def props = writeJSON file: 'api-definition/4-complete-config.json', json: props
+                  writeJSON file: 'api-definition/4-complete-config.json', json: props
                }
             }
             
