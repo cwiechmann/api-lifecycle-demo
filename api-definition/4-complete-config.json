@@ -12,7 +12,7 @@
          "Axway",
          "Chantilly"
       ],
-      "nextStage": "staging"
+      "nextStage":["staging"]
    },
 	"authenticationProfiles": [
 		{
