@@ -17,7 +17,7 @@ pipeline {
       stage('Import API to Axway API Manager') {
          steps {
             script{
-               def props = readJSON file: 'api-definition/4-complete-config.json
+               def props = readJSON file: 'api-definition/4-complete-config.json'
                
                if(stage.equals("staging")){
                   def list = new ArrayList()
@@ -25,6 +25,7 @@ pipeline {
                   def tags = props.get("tags")
                   tags.accumulate("nextStage", list)
                   print props
+                  def props = writeJSON file: 'api-definition/4-complete-config.json', json: props
                }
             }
             
