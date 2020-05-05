@@ -7,7 +7,7 @@
    "apiDefinition": "./api-definition/api-swagger-files/2-imagine-weather-api-2nd-version.json",
    "image":"weather-logo.jpg",
    "backendBasepath":"http://backend-preprod.weather.com:8081/api/api/v1/weather",
-   "vhost": "forrester-preprod.demo.axway.com:8065"
+   "vhost": "forrester-preprod.demo.axway.com:8065",
    "tags":{
       "Imagine":[
          "Axway",
