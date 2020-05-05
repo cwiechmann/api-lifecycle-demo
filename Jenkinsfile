@@ -19,7 +19,7 @@ pipeline {
             script{
                def props = readJSON file: 'api-definition/4-complete-config.json'
                
-               if(stage.equals("staging")){
+               if(stage.equals("preprod")){
                   def list = new ArrayList()
                   list.add("prod")
                   def tags = props.get("tags")
